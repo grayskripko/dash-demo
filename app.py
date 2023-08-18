@@ -51,6 +51,18 @@ app.layout = html.Div([
 def update_graph(plot_y, countries):
     return plots.main(G['data'], y=plot_y, countries=countries)
 
-
 if __name__ == '__main__':
     app.run_server()
+
+
+# az login
+# - 1 prepare two system variables
+# az webapp config set --resource-group dash-demo-rg --name skripko-demo --startup-file startup.txt
+# az webapp config appsettings set --name skripko-demo --resource-group dash-demo-rg --settings SCM_DO_BUILD_DURING_DEPLOYMENT=1
+# - 2 run
+# az webapp up --name skripko-demo --resource-group dash-demo-rg
+# az webapp up 
+# - 3 logs, but with ~10 min delay. The docker, general and mostly useless, and default_docker
+# https://skripko-demo.scm.azurewebsites.net/api/vfs/LogFiles/
+# - 4 if az login is not successful, restart wsl --shutdown or, experimental:
+# sudo hwclock -s
