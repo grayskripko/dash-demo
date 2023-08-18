@@ -1,0 +1,25 @@
+# .gitignore
+
+# Python-related files
+__pycache__/
+*.pyc
+
+# Dash-specific files
+/.venv/
+/.vscode/
+/.idea/
+
+# Project-specific files
+/.env
+/.env.*
+/.flaskenv
+/.vscode/
+
+# Logs and output files
+*.log
+*.csv
+*.xlsx
+
+# Other files and directories
+/.DS_Store
+prog360-app.code-workspace
