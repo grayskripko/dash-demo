@@ -7,14 +7,11 @@ import plotly.graph_objects as go
 def main(df, y, countries):
     filtered_df = df[df['Country'].isin(countries)]
     
-    # fig = go.Figure()
     fig = px.scatter(
         filtered_df, x='Date', y=y, color='Country', 
+        hover_data = ['Country', 'Date', 'New_cases', 'Cumulative_cases'],
         labels={y: y.replace("_", " "), "Date": "Date"})
     fig.update_traces(mode='lines+markers')
-
-            # marker=dict(size=5, opacity=0.5),
-            # line=dict(width=2.5)))
         
     fig.update_layout(
         title={

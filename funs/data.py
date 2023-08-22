@@ -10,5 +10,6 @@ from datetime import datetime
 
 
 def get_data():
-    return pd.read_csv('data/covid.csv')\
-        .assign(Date = lambda df: pd.to_datetime(df['Date']))
+    data_url = 'https://covid19.who.int/WHO-COVID-19-global-data.csv'
+    return pd.read_csv(data_url)\
+        .assign(Date = lambda df: pd.to_datetime(df['Date_reported']))
