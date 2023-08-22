@@ -21,7 +21,8 @@ controls = dbc.Card([
             id='plot-y', 
             options=[
                 {'label': 'New cases', 'value': 'New_cases'},
-                {'label': 'Cumulative cases', 'value': 'Cumulative_cases'}],
+                {'label': 'Cumulative cases', 'value': 'Cumulative_cases'},
+                {'label': 'Cumulative % of population', 'value': 'Cumulative % of population'}], 
             value='New_cases', clearable=False)]),
     dbc.Row(id='countries-comp', children=[
         html.Label('Pick countries'),
@@ -64,5 +65,5 @@ if __name__ == '__main__':
 # az webapp up 
 # - 3 logs, but with ~10 min delay. The docker, general and mostly useless, and default_docker
 # https://skripko-demo.scm.azurewebsites.net/api/vfs/LogFiles/
-# - 4 if az login is not successful, restart wsl --shutdown or, experimental:
+# - 4 if az login is not successful, restart wsl --shutdown or:
 # sudo hwclock -s

@@ -5,12 +5,15 @@ import plotly.graph_objects as go
 
 
 def main(df, y, countries):
-    filtered_df = df[df['Country'].isin(countries)]
+    filtered_df = df[df['Country'].isin(countries)]\
+        .rename(columns={'Cumulative_perc_pop': 'Cumulative % of population'})\
+        .rename(columns=lambda x: x.replace("_", " "))
     
     fig = px.scatter(
-        filtered_df, x='Date', y=y, color='Country', 
-        hover_data = ['Country', 'Date', 'New_cases', 'Cumulative_cases'],
-        labels={y: y.replace("_", " "), "Date": "Date"})
+        filtered_df, x='Date', y=y.replace("_", " "), color='Country', 
+        hover_data = [
+            'Country', 'Date', 'New cases', 'Cumulative cases', 
+            'Cumulative % of population'])
     fig.update_traces(mode='lines+markers')
         
     fig.update_layout(
@@ -20,9 +23,4 @@ def main(df, y, countries):
             'y':0.97, 'x':0.5, 'xanchor': 'center', 'yanchor': 'top'},
         autosize=True,
         margin=dict(l=15, r=15, b=15, t=50, pad=5) )
-    
-    
-    # ylim = pd.Series([df[y].quantile(x) for x in [0.02, 0.98]])\
-    #     .abs().mean().astype(int)
-    # fig.update_yaxes(range=[-10, ylim])
     return fig
