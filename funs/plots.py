@@ -18,7 +18,7 @@ def main(df, y, countries):
         
     fig.update_layout(
         title={
-            'text': f"Covid, live data, cases on {filtered_df['Date'].max().strftime('%d.%m.%Y')}",
+            'text': f"Covid, cases on {filtered_df['Date'].max().strftime('%d.%m.%Y')}",
             'font': dict(size=24, family='Arial, bold'),
             'y':0.97, 'x':0.5, 'xanchor': 'center', 'yanchor': 'top'},
         autosize=True,
